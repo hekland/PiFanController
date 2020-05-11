@@ -1,0 +1,10 @@
+[Unit]
+Description=PWM fan control for RPi (pin 18)
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3 /usr/local/bin/piFanCtrl.py
+
+[Install]
+WantedBy=multi-user.target
