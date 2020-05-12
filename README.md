@@ -1,10 +1,12 @@
 # PiFanController
 Regulate the RPM of your Raspberry Pi's cooling fan to reduce noise, 
-with a chosen temperature set-point.
+with a chosen temperature set-point. A simple PID control loop will try to reduce temperature to the target temperature with the minimum RPM.
+Having a heatsink will obviously help reduce the RPM needed to reach the target temperature.
+
 Connect fan with circuit similar to [RPi_fan_ctrl_schem.png](https://github.com/hekland/PiFanController/blob/master/RPi_fan_ctrl_schem.png), using some standard
 npn-transistor like 2N2222.
-Test how the fan responds by using the Python command line:
 
+Test how the fan responds by using the Python command line in order to determine the fan's minimum duty cycle one can set to get it to start spinning from zero:
 ```
 from gpiozero import PWMOutputDevice
 fanPwm = PWMOutputDevice(pin=18)
